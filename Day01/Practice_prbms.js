@@ -32,11 +32,11 @@ checkType(function(){}); // fun
 
 console.log("3) Initial creator-------------------------------");
 
-let fullName = "Mike Tyson";
+let fullName = "John Doe";
 
 let initials = fullName.split(" ")[0][0] + fullName.split(" ")[1][0];
 
-console.log(initials); // MJ
+console.log(initials); // JD
 
 console.log("4) The Cleaner------------------------------------------");
 let messy = " Javascript is fun ";
