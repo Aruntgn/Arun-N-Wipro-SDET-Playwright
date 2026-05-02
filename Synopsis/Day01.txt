@@ -1,0 +1,131 @@
+================================================================================
+JAVASCRIPT TRAINING SYNOPSIS – DAY 1
+================================================================================
+
+--------------------------------------------------------------------------------
+DAY 1: CORE JAVASCRIPT FUNDAMENTALS
+--------------------------------------------------------------------------------
+
+The fundamental JavaScript concepts covered on Day 1,
+focusing on basic syntax, data handling, and control structures.
+
+--------------------------------------------------------------------------------
+1. VARIABLES & DATA TYPES
+--------------------------------------------------------------------------------
+- JavaScript is a dynamically typed, high-level language.
+- Variables are declared using:
+    let   → block scoped
+    const → block scoped (cannot be reassigned)
+    var   → function scoped
+- Variables can change type during execution.
+
+--------------------------------------------------------------------------------
+2. STRING OPERATIONS
+--------------------------------------------------------------------------------
+- Used built-in methods for manipulating strings.
+Example:
+    let str = "Hello, World!";
+    console.log(str.length);        // 13
+    console.log(str.toUpperCase()); // "HELLO, WORLD!"
+    console.log(str.substring(0,5));// "Hello"
+
+--------------------------------------------------------------------------------
+3. MATHEMATICAL & LOGICAL OPERATIONS
+--------------------------------------------------------------------------------
+- Arithmetic operators: +, -, *, /, %
+- Logical comparisons: >, <, ==, ===, !=, >=, <=
+- '===' ensures strict comparison (value + type)
+
+Example:
+    let a = 5, b = 10;
+    console.log(a + b);   // 15
+    console.log(a % b);   // 5
+    console.log(a === b); // false
+
+--------------------------------------------------------------------------------
+4. OBJECTS & ARRAYS
+--------------------------------------------------------------------------------
+- Objects store data in key-value pairs.
+- Arrays store collections of elements.
+
+Example:
+    let obj = { name: "Arun", age: 22 };
+    console.log(obj.name);
+
+    let arr = [1, "Hello", true];
+
+--------------------------------------------------------------------------------
+5. FUNCTIONS
+--------------------------------------------------------------------------------
+- Functions are reusable blocks of code.
+
+Example:
+    function add(a, b) {
+        return a + b;
+    }
+
+--------------------------------------------------------------------------------
+6. SCOPE (let vs var)
+--------------------------------------------------------------------------------
+- let → block scoped
+- var → function scoped
+
+Example:
+    {
+        let x = 10; // only inside block
+        var y = 20; // accessible outside
+    }
+
+--------------------------------------------------------------------------------
+7. CONTROL STATEMENTS
+--------------------------------------------------------------------------------
+- if-else → decision making
+- switch → multiple conditions
+- for loop → iteration
+
+Example:
+    for (let i = 0; i < 3; i++) {
+        console.log(i);
+    }
+
+--------------------------------------------------------------------------------
+8. NODE.JS
+--------------------------------------------------------------------------------
+- JavaScript runtime that allows execution outside the browser.
+- Used for backend and server-side applications.
+
+--------------------------------------------------------------------------------
+9. JSON & CLIENT-SERVER ARCHITECTURE
+--------------------------------------------------------------------------------
+- JSON → data format using key-value pairs.
+- Client sends request → Server responds.
+
+HTTP Methods:
+    GET, POST, PUT, DELETE
+
+Response states:
+    Success, Pending, Error (404, 500)
+
+--------------------------------------------------------------------------------
+10. GIT BASICS
+--------------------------------------------------------------------------------
+- Version control system used to track code changes.
+
+Commands:
+    git init
+    git add .
+    git commit -m "message"
+    git push origin main
+    git status
+
+--------------------------------------------------------------------------------
+KEY TAKEAWAYS
+--------------------------------------------------------------------------------
+- JavaScript is flexible due to dynamic typing.
+- Prefer let/const over var.
+- Use '===' for safer comparisons.
+- Understanding scope is critical.
+- Node.js enables server-side JavaScript.
+- Understanding APIs and HTTP is important for real-world applications.
+================================================================================
+
