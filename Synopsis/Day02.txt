@@ -69,8 +69,61 @@ Example:
     colors.splice(1,1);
 
 --------------------------------------------------------------------------------
+7. REDUCE FUNCTION
+--------------------------------------------------------------------------------
+- Used to convert an array into a single value (sum, object, etc.)
+
+Example (sum of array):
+    const prices = [10, 20, 30, 40];
+
+    const total = prices.reduce((acc, curr) => acc + curr, 0);
+
+Explanation:
+    acc  → accumulator (stores result)
+    curr → current element
+    0    → initial value
+
+Dry Run:
+    0 + 10 = 10
+    10 + 20 = 30
+    30 + 30 = 60
+    60 + 40 = 100
+
+Example (counting elements):
+    const fruits = ['apple', 'banana', 'apple'];
+
+    const count = fruits.reduce((acc, fruit) => {
+        acc[fruit] = (acc[fruit] || 0) + 1;
+        return acc;
+    }, {});
+
+--------------------------------------------------------------------------------
+8. DOM MANIPULATION
+--------------------------------------------------------------------------------
+- Manipulating HTML elements using JavaScript.
+
+Concepts covered:
+    - Selecting elements using id and class
+    - Updating content dynamically
+    - Handling user input
+
+Navigation:
+    window.location.href = "app.html";
+    → Redirects user to another page
+
+--------------------------------------------------------------------------------
+9. LOGIN FORM IMPLEMENTATION
+--------------------------------------------------------------------------------
+- Created a basic login page using HTML, CSS, and JavaScript.
+- Implemented input handling and navigation between pages.
+- Applied DOM manipulation techniques for interaction.
+
+
+--------------------------------------------------------------------------------
 KEY TAKEAWAYS
 --------------------------------------------------------------------------------
 - Template literals and arrow functions improve readability.
 - Array methods simplify data processing.
+- reduce() is powerful for aggregation and transformations.
+- DOM manipulation enables dynamic web applications.
 ================================================================================
