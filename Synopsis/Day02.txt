@@ -1,0 +1,76 @@
+================================================================================
+JAVASCRIPT TRAINING SYNOPSIS – DAY 2
+================================================================================
+
+JavaScript concepts covered on Day 2,
+focusing on modern syntax, array methods, and practical programming techniques.
+
+--------------------------------------------------------------------------------
+1. TEMPLATE LITERALS
+--------------------------------------------------------------------------------
+- Uses backticks (`) and ${} for dynamic string interpolation.
+
+Example:
+    let name = "Arun";
+    console.log(`Hello ${name}`);
+
+--------------------------------------------------------------------------------
+2. ARROW FUNCTIONS
+--------------------------------------------------------------------------------
+- Short syntax for writing functions.
+
+Example:
+    let sum = (a, b) => a + b;
+    console.log(sum(5, 10)); // 15
+
+--------------------------------------------------------------------------------
+3. ARRAY METHODS (FUNCTIONAL PROGRAMMING)
+--------------------------------------------------------------------------------
+- filter() → select elements
+- map() → transform elements
+- find() → locate element
+
+Example:
+    let arr = [1, 2, 3, "Arun"];
+    let result = arr
+        .filter(x => typeof x === "number")
+        .map(x => x * 2);
+
+--------------------------------------------------------------------------------
+4. MATH FUNCTIONS
+--------------------------------------------------------------------------------
+- Used for generating random values and calculations.
+
+Example:
+    Math.floor(Math.random() * 100) + 1; // 1–100
+
+--------------------------------------------------------------------------------
+5. TYPE CONVERSION
+--------------------------------------------------------------------------------
+- Converting data between types.
+
+Example:
+    Number("5");      // 5
+    String(5);        // "5"
+    parseInt("10.5"); // 10
+
+--------------------------------------------------------------------------------
+6. ARRAY OPERATIONS
+--------------------------------------------------------------------------------
+- push() → add to end
+- pop() → remove from end
+- unshift() → add to beginning
+- shift() → remove from beginning
+- splice() → add/remove elements
+
+Example:
+    let colors = ["red", "green", "blue"];
+    colors.push("yellow");
+    colors.splice(1,1);
+
+--------------------------------------------------------------------------------
+KEY TAKEAWAYS
+--------------------------------------------------------------------------------
+- Template literals and arrow functions improve readability.
+- Array methods simplify data processing.
+================================================================================
