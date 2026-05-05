@@ -1,0 +1,98 @@
+================================================================================
+JAVASCRIPT TRAINING SYNOPSIS – DAY 04
+=====================================
+
+The concepts covered on Day 04, focusing on asynchronous
+JavaScript, Promises, and time-based functions.
+
+---
+
+1. ASYNCHRONOUS JAVASCRIPT
+
+---
+
+* JavaScript executes code in a non-blocking manner using asynchronous behavior.
+* Tasks like API calls, timers, and data fetching do not block the main thread.
+
+---
+
+2. PROMISES
+
+---
+
+* A Promise represents a value that may be available now, later, or never.
+* It has three states:
+  Pending   → Initial state
+  Fulfilled → Operation completed successfully
+  Rejected  → Operation failed
+
+Example:
+function getData() {
+return new Promise((resolve, reject) => {
+setTimeout(() => {
+resolve("Data received");
+}, 2000);
+});
+}
+
+* The Promise is resolved after a delay of 2 seconds using setTimeout.
+
+---
+
+3. HANDLING PROMISES
+
+---
+
+* .then() → Executes when Promise is fulfilled
+* .catch() → Executes when Promise is rejected
+
+Example:
+getData()
+.then((data) => {
+console.log(data);
+})
+.catch((error) => {
+console.error("Error:", error);
+});
+
+---
+
+4. setTimeout()
+
+---
+
+* Executes a function once after a specified delay.
+
+Example:
+setTimeout(() => {
+console.log("Data received");
+}, 5000);
+
+* Used to simulate delayed operations like API calls.
+
+---
+
+5. setInterval()
+
+---
+
+* Executes a function repeatedly at fixed intervals.
+
+Example:
+setInterval(() => {
+console.log("Checking for new data...");
+}, 3000);
+
+* Commonly used for polling or periodic updates.
+
+---
+
+## KEY TAKEAWAYS
+
+* Promises help manage asynchronous operations effectively.
+* .then() and .catch() are used to handle success and failure cases.
+* setTimeout() is used for delayed execution.
+* setInterval() is used for repeated execution.
+* Asynchronous programming is essential for real-world applications like API calls.
+
+================================================================================
