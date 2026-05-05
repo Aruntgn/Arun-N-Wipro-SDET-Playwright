@@ -1,24 +1,20 @@
 ================================================================================
 JAVASCRIPT TRAINING SYNOPSIS – DAY 04
-=====================================
+================================================================================
 
 The concepts covered on Day 04, focusing on asynchronous
 JavaScript, Promises, and time-based functions.
 
----
-
+--------------------------------------------------------------------------------
 1. ASYNCHRONOUS JAVASCRIPT
-
----
+--------------------------------------------------------------------------------
 
 * JavaScript executes code in a non-blocking manner using asynchronous behavior.
 * Tasks like API calls, timers, and data fetching do not block the main thread.
 
----
-
+--------------------------------------------------------------------------------
 2. PROMISES
-
----
+--------------------------------------------------------------------------------
 
 * A Promise represents a value that may be available now, later, or never.
 * It has three states:
@@ -37,12 +33,9 @@ resolve("Data received");
 
 * The Promise is resolved after a delay of 2 seconds using setTimeout.
 
----
-
+--------------------------------------------------------------------------------
 3. HANDLING PROMISES
-
----
-
+--------------------------------------------------------------------------------
 * .then() → Executes when Promise is fulfilled
 * .catch() → Executes when Promise is rejected
 
@@ -55,11 +48,9 @@ console.log(data);
 console.error("Error:", error);
 });
 
----
-
+--------------------------------------------------------------------------------
 4. setTimeout()
-
----
+--------------------------------------------------------------------------------
 
 * Executes a function once after a specified delay.
 
@@ -70,11 +61,9 @@ console.log("Data received");
 
 * Used to simulate delayed operations like API calls.
 
----
-
+--------------------------------------------------------------------------------
 5. setInterval()
-
----
+--------------------------------------------------------------------------------
 
 * Executes a function repeatedly at fixed intervals.
 
@@ -85,14 +74,67 @@ console.log("Checking for new data...");
 
 * Commonly used for polling or periodic updates.
 
----
+--------------------------------------------------------------------------------
+6. FETCH API
+   Concept: Used to make HTTP requests to external servers.
+   - Returns a Promise
+   - Used to retrieve real-world data
 
-## KEY TAKEAWAYS
+   Example:
+   fetch("https://jsonplaceholder.typicode.com/todos")
+       .then(res => res.json())
+       .then(data => console.log(data));
 
-* Promises help manage asynchronous operations effectively.
-* .then() and .catch() are used to handle success and failure cases.
-* setTimeout() is used for delayed execution.
-* setInterval() is used for repeated execution.
-* Asynchronous programming is essential for real-world applications like API calls.
+--------------------------------------------------------------------------------
+7. ARRAY METHODS ON API DATA
+   Concept: Processing API data using functional methods.
+
+   Methods:
+   - filter() → select required data
+   - map() → transform data
+   - slice() → limit results
+
+   Example:
+   fetch("https://jsonplaceholder.typicode.com/todos")
+       .then(res => res.json())
+       .then(data => data.filter(d => d.completed))
+       .then(data => data.slice(0, 5))
+       .then(data => data.map(d => d.title));
+
+--------------------------------------------------------------------------------
+8. MULTIPLE API PRACTICE
+   Concept: Used different public APIs to understand real-world data handling.
+
+   Some of the APIs Used:
+   - Random User API → extracted name and email
+   - Cat Fact API → transformed text to uppercase
+   - Advice API → split and processed sentence
+   - Dog API → retrieved image URL
+   - Joke API → formatted conversational output
+
+
+--------------------------------------------------------------------------------
+9. ERROR HANDLING
+   Concept: Handling failures in async operations.
+
+   Example:
+   .catch(error => console.error("Error:", error));
+
+
+--------------------------------------------------------------------------------
+KEY TAKEAWAYS
+--------------------------------------------------------------------------------
+
+- Promises help manage asynchronous operations effectively.
+- .then() and .catch() are used to handle success and failure cases.
+- setTimeout() is used for delayed execution.
+- setInterval() is used for repeated execution.
+- Asynchronous programming is essential for real-world applications like API calls.
+- Asynchronous JavaScript enables non-blocking execution.
+- Promises simplify handling of delayed operations.
+- fetch() is essential for API communication.
+- Array methods like filter and map are powerful for data processing.
+- Real-world applications heavily depend on APIs.
+- Proper error handling is crucial for stability.
 
 ================================================================================
