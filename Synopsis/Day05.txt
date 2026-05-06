@@ -1,0 +1,169 @@
+================================================================================
+JAVASCRIPT TRAINING SYNOPSIS – DAY 05
+================================================================================
+
+The concepts covered on Day 05, focusing on modern
+asynchronous JavaScript techniques and Object-Oriented Programming (OOPS).
+
+--------------------------------------------------------------------------------
+DAY 5: ASYNC FUNCTIONS, FETCH API & OOPS
+--------------------------------------------------------------------------------
+
+1. ASYNC FUNCTIONS
+   Concept:
+   - async functions are used to handle asynchronous operations.
+   - They automatically return a Promise.
+   - Makes asynchronous code cleaner and more readable.
+
+   Example:
+   async function getData() {
+       return "Data received";
+   }
+
+--------------------------------------------------------------------------------
+2. AWAIT KEYWORD
+   Concept:
+   - await pauses execution inside an async function until the Promise resolves.
+   - Used to extract actual data from asynchronous operations.
+
+   Example:
+   async function getTodos() {
+       let response = await fetch("https://jsonplaceholder.typicode.com/todos");
+       let data = await response.json();
+       return data;
+   }
+
+--------------------------------------------------------------------------------
+3. FETCH API
+   Concept:
+   - fetch() is used to make HTTP requests to servers/APIs.
+   - Returns a Promise containing the response.
+
+   Example:
+   fetch("https://jsonplaceholder.typicode.com/todos");
+
+   Operations performed:
+   - Fetching API data
+   - Converting response to JSON
+   - Handling asynchronous data
+
+--------------------------------------------------------------------------------
+4. API PRACTICE EXAMPLES
+   Concept:
+   Practiced working with multiple public APIs and processing real-world data.
+
+   APIs Used:
+   - JSONPlaceholder API
+   - Random User API
+   - Dog API
+   - Cat Fact API
+   - Advice API
+   - Pokémon API
+   - Age Prediction API
+   - Gender Prediction API
+   - Nationality Prediction API
+   - Joke API
+
+--------------------------------------------------------------------------------
+5. ARRAY METHODS ON API DATA
+   Concept:
+   Used functional programming methods to process API responses.
+
+   Methods Used:
+   - filter()
+   - map()
+   - forEach()
+   - slice()
+
+   Example:
+   data.filter(d => d.completed)
+       .slice(0, 3)
+       .map(d => d.title);
+
+--------------------------------------------------------------------------------
+6. ERROR HANDLING
+   Concept:
+   - Used try-catch blocks for handling API/network errors.
+
+   Example:
+   try {
+       let data = await fetch(url);
+   } catch(error) {
+       console.error(error);
+   }
+
+--------------------------------------------------------------------------------
+7. CLASS
+   Concept:
+   - A class is a blueprint/template used to create objects.
+   - Contains properties and methods.
+
+   Example:
+   class Student {
+       constructor(name) {
+           this.name = name;
+       }
+   }
+
+--------------------------------------------------------------------------------
+8. OBJECT
+   Concept:
+   - Objects are instances created from classes.
+   - Store actual values and access methods.
+
+   Example:
+   const s1 = new Student("Arun");
+
+--------------------------------------------------------------------------------
+9. ENCAPSULATION
+   Concept:
+   - Wrapping data and methods into a single unit.
+   - Restricts direct access to internal data.
+
+   Example:
+   class BankAccount {
+       #balance = 0;
+   }
+
+--------------------------------------------------------------------------------
+10. INHERITANCE
+   Concept:
+   - One class inherits properties and methods from another class.
+   - Promotes code reusability.
+
+   Example:
+   class Dog extends Animal {}
+
+--------------------------------------------------------------------------------
+11. POLYMORPHISM
+   Concept:
+   - Same method behaves differently in different classes.
+
+   Example:
+   class Cat extends Animal {
+       sound() {
+           console.log("Meow");
+       }
+   }
+
+--------------------------------------------------------------------------------
+12. ABSTRACTION
+   Concept:
+   - Hides internal implementation and exposes only essential functionality.
+
+   Example:
+   class Car {
+       #igniteEngine() {}
+   }
+
+--------------------------------------------------------------------------------
+KEY TAKEAWAYS
+--------------------------------------------------------------------------------
+- async/await simplifies asynchronous programming.
+- fetch() is essential for API communication.
+- APIs provide real-world dynamic data.
+- Array methods are powerful for data transformation.
+- OOPS improves code organization and reusability.
+- Encapsulation, Inheritance, Polymorphism, and Abstraction are core OOPS concepts.
+
+================================================================================
