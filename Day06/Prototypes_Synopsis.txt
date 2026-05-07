@@ -1,0 +1,190 @@
+==========================================================
+PROTOTYPE IN JAVASCRIPT
+==========================================================
+
+
+Definition:
+Prototype is a mechanism in JavaScript that allows objects
+to inherit properties and methods from another object.
+
+Every JavaScript object has a hidden internal property
+called [[Prototype]].
+
+
+==========================================================
+EXAMPLE 1: BASIC PROTOTYPE
+==========================================================
+
+Question:
+Create a Person constructor and add a shared method using
+prototype.
+
+
+function Person(name, age) {
+
+    this.name = name;
+    this.age = age;
+}
+
+
+// Adding method using prototype
+Person.prototype.introduce = function () {
+
+    console.log(
+        `Hi, my name is ${this.name} and I am ${this.age} years old.`
+    );
+};
+
+
+// Creating objects
+const p1 = new Person("Arun", 22);
+const p2 = new Person("Genghis Khan", 876);
+
+
+console.log("=== Prototype Example 1 ===");
+
+p1.introduce();
+p2.introduce();
+
+
+Output:
+Hi, my name is Arun and I am 22 years old.
+Hi, my name is Genghis Khan and I am 876 years old.
+
+
+
+==========================================================
+EXAMPLE 2: SHARED METHODS
+==========================================================
+
+Question:
+Create a Car constructor and add a shared details() method
+using prototype.
+
+
+function Car(brand, color) {
+
+    this.brand = brand;
+    this.color = color;
+}
+
+
+// Shared prototype method
+Car.prototype.details = function () {
+
+    console.log(
+        `Car Brand: ${this.brand}, Color: ${this.color}`
+    );
+};
+
+
+const c1 = new Car("BMW", "Black");
+const c2 = new Car("Audi", "White");
+
+
+console.log("\n=== Prototype Example 2 ===");
+
+c1.details();
+c2.details();
+
+
+Output:
+Car Brand: BMW, Color: Black
+Car Brand: Audi, Color: White
+
+
+==========================================================
+EXAMPLE 3: PROTOTYPE INHERITANCE
+==========================================================
+
+Question:
+Create inheritance using prototypes between Animal and Dog.
+
+
+function Animal(type) {
+
+    this.type = type;
+}
+
+
+// Parent prototype method
+Animal.prototype.sound = function () {
+
+    console.log(`${this.type} makes sound`);
+};
+
+
+function Dog(name) {
+
+    this.name = name;
+}
+
+
+// Prototype inheritance
+Dog.prototype = Object.create(Animal.prototype);
+
+
+// Reset constructor
+Dog.prototype.constructor = Dog;
+
+
+// Child method
+Dog.prototype.bark = function () {
+
+    console.log(`${this.name} barks`);
+};
+
+
+const dog1 = new Dog("Rocky");
+
+dog1.type = "Dog";
+
+
+console.log("\n=== Prototype Inheritance Example ===");
+
+dog1.sound();
+dog1.bark();
+
+
+Output:
+Dog makes sound
+Rocky barks
+
+
+==========================================================
+EXAMPLE 4: BUILT-IN PROTOTYPE
+==========================================================
+
+Question:
+Add custom method to Array prototype.
+
+
+Array.prototype.sayHello = function () {
+
+    console.log("Hello from Array Prototype");
+};
+
+
+const arr = [1, 2, 3];
+
+
+console.log("\n=== Built-in Prototype Example ===");
+
+arr.sayHello();
+
+
+Output:
+Hello from Array Prototype
+
+
+==========================================================
+FINAL NOTE
+==========================================================
+
+Advantages of Prototype:
+- Method sharing
+- Memory optimization
+- Supports inheritance
+
+Prototype allows all objects created from a constructor
+to access common methods.
