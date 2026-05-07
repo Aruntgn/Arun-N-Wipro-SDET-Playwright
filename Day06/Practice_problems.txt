@@ -1,0 +1,118 @@
+================================================================================
+PRACTICE PROBLEM SYNOPSIS
+================================================================================
+
+--------------------------------------------------------------------------------
+1. FLIGHT BOOKING DATA CLEANER
+--------------------------------------------------------------------------------
+
+Problem:
+Flight information was provided as raw strings in the format:
+    "SOURCE-DESTINATION:PRICE"
+
+Some price values were invalid or corrupted.
+
+Approach:
+- Split each string into route and price
+- Extract source and destination cities
+- Convert price into Number format
+- Validate invalid price values using isNaN()
+- Replace invalid prices with 0
+- Filter flights within a required price range
+- Sort flights from cheapest to highest price
+- Convert final output into JSON format
+
+Concepts Used:
+- split()
+- Number()
+- isNaN()
+- map()
+- filter()
+- sort()
+- JSON.stringify()
+
+--------------------------------------------------------------------------------
+2. E-COMMERCE DISCOUNT APPLICATOR
+--------------------------------------------------------------------------------
+
+Problem:
+A shopping cart system needed to identify products eligible for discounts
+based on category and pricing conditions.
+
+Approach:
+- Created a callback function for discount eligibility
+- Checked whether products belonged to Electronics category
+- Applied 10% discount for eligible products
+- Added isDiscounted property to all items
+- Calculated total savings amount
+- Generated summary using template literals
+- Simulated delayed server processing using setTimeout()
+
+Concepts Used:
+- Callback Functions
+- map()
+- Conditional Statements
+- Template Literals
+- setTimeout()
+- Object Spread Operator (...)
+
+--------------------------------------------------------------------------------
+3. MOVIE STREAM ANALYTICS
+--------------------------------------------------------------------------------
+
+Problem:
+Movie details were provided as unstructured strings:
+    "MOVIE_NAME|GENRE|VIEW_COUNT"
+
+The goal was to identify highly viewed Action and Sci-Fi movies.
+
+Approach:
+- Parsed movie strings into structured objects
+- Converted view count into Number format
+- Validated corrupted view data
+- Filtered Action and Sci-Fi movies
+- Selected movies with views greater than 5000
+- Sorted movies by highest views first
+- Returned final data as JSON
+
+Concepts Used:
+- String Parsing
+- map()
+- filter()
+- sort()
+- JSON.stringify()
+
+--------------------------------------------------------------------------------
+4. AUTOMATED PAYROLL PROCESSOR
+--------------------------------------------------------------------------------
+
+Problem:
+A payroll system needed to automate tax deduction and salary classification.
+
+Approach:
+- Created a callback function to determine tax percentage
+- Applied different tax rates based on salary conditions
+- Calculated tax amount and net salary
+- Added Premium or Standard employee status
+- Calculated total net payout
+- Simulated delayed payroll processing using setTimeout()
+
+Concepts Used:
+- Callback Functions
+- map()
+- Conditional Operators
+- Template Literals
+- setTimeout()
+
+--------------------------------------------------------------------------------
+OVERALL LEARNING OUTCOME
+--------------------------------------------------------------------------------
+
+- Learned how to process and clean raw/unstructured data
+- Improved logical problem-solving skills
+- Practiced real-world data transformation techniques
+- Understood the importance of validation and filtering
+- Gained hands-on experience with callbacks and async behavior
+- Strengthened understanding of modern array methods
+
+================================================================================
