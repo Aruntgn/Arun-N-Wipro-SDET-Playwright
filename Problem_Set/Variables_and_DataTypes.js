@@ -2,12 +2,10 @@
 
 /*
 1. Swap Two Numbers Without Using Third Variable
-Problem
-
+Problem:
 Swap two numbers without using an extra variable.
 
-Approach
-
+Approach:
 Use arithmetic operations to swap values.
 */ 
 console.log("1.Swap Two Numbers Without Using Third Variable:");
@@ -28,12 +26,10 @@ After Swap: 20 10
 
 /*
 2. Check Data Type
-Problem
-
+Problem:
 Identify whether a value is number, string, boolean, null, or undefined.
 
-Approach
-
+Approach:
 Use typeof operator and special check for null.
 */
 
@@ -63,12 +59,10 @@ undefined
 
 /*
 3. Celsius to Fahrenheit Conversion
-Problem
-
+Problem:
 Convert temperature from Celsius to Fahrenheit.
 
-Formula
-
+Formula:
 F = (C × 9/5) + 32
 */
 console.log("\n3. Celsius to Fahrenheit Conversion:");
@@ -84,8 +78,7 @@ console.log(`${celsius}°C = ${fahrenheit}°F`);
 
 /*
 4. Simple Calculator
-Problem
-
+Problem:
 Create calculator using arithmetic operators.
 */
 
@@ -110,12 +103,10 @@ Modulus: 0
 
 /*
 5. Calculate Age from Birth Year
-Problem
-
+Problem:
 Calculate age using birth year.
 
-Approach
-
+Approach:
 Subtract birth year from current year.
 */
 
