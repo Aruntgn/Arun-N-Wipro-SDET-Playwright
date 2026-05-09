@@ -9,7 +9,6 @@ Loop through the string from the end and build a new string.
 */
 
 let str = "JavaScript";
-
 let reversed = "";
 
 for (let i = str.length - 1; i >= 0; i--) {
