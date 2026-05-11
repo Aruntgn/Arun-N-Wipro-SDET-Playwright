@@ -1,4 +1,4 @@
-// const axios = require('axios'); // import
+// const axios = require('axios'); // Importing axios for making HTTP requests
 
 async function getAstroData() {
     const URL = "http://api.open-notify.org/astros.json";
