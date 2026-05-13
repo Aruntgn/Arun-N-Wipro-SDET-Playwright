@@ -374,11 +374,9 @@ type CarApi = ApiResponse<Car>;
 
 const carData: CarApi = {
 
-    DATA_MAKE: "Tesla",
-
-    DATA_MODEL: "Model S"
+    DATA_MAKE: "Porsche",
+    DATA_MODEL: "GT3RS"
 };
 
 console.log("Mapped API Response:");
-
 console.log(carData);
