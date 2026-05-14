@@ -1,0 +1,263 @@
+
+// ================================================================================
+// PLAYWRIGHT TRAINING SYNOPSIS – DAY 12
+// ================================================================================
+
+/*
+This session focused on understanding the fundamentals of Playwright,
+a modern automation testing framework used for browser automation,
+UI testing, and end-to-end web application testing.
+
+We explored Playwright setup, browser execution, test structure,
+locators, assertions, and test execution across multiple browsers.
+*/
+
+
+// --------------------------------------------------------------------------------
+// 1. INTRODUCTION TO PLAYWRIGHT
+// --------------------------------------------------------------------------------
+
+/*
+Playwright is an automation testing framework mainly used for:
+
+- Web Testing
+- UI Testing
+- End-to-End Testing
+- Browser Automation
+
+It supports multiple browsers:
+- Chromium
+- Firefox
+- WebKit
+
+Supported Languages:
+- JavaScript
+- TypeScript
+- Python
+- Java
+*/
+
+
+// --------------------------------------------------------------------------------
+// 2. PLAYWRIGHT PROJECT INITIALIZATION
+// --------------------------------------------------------------------------------
+
+/*
+We initialized a Playwright project using:
+
+    npm init playwright@latest
+
+During setup:
+- Playwright project structure was generated
+- Required dependencies were installed
+- Browser binaries were downloaded automatically
+- Sample test files and configuration files were created
+*/
+
+
+// --------------------------------------------------------------------------------
+// 3. IMPORTANT PLAYWRIGHT COMMANDS
+// --------------------------------------------------------------------------------
+
+/*
+Initialize Playwright Project:
+    npm init playwright@latest
+
+Run All Tests:
+    npx playwright test
+
+Run Specific Test File:
+    npx playwright test techx.spec.js
+
+Run Tests in UI Mode:
+    npx playwright test --ui
+
+Run Tests in Headed Mode:
+    npx playwright test --headed
+
+Run Tests in Debug Mode:
+    npx playwright test --debug
+
+Generate Automation Code:
+    npx playwright codegen
+
+View HTML Report:
+    npx playwright show-report
+*/
+
+
+// --------------------------------------------------------------------------------
+// 4. PLAYWRIGHT TEST STRUCTURE
+// --------------------------------------------------------------------------------
+
+/*
+Basic Playwright Test Structure:
+
+import { test, expect } from "@playwright/test";
+
+test('check title', async ({ page }) => {
+
+});
+*/
+
+
+// --------------------------------------------------------------------------------
+// 5. IMPORTING PLAYWRIGHT FUNCTIONS
+// --------------------------------------------------------------------------------
+
+/*
+import { test, expect } from "@playwright/test";
+
+test   → Used to create test cases
+expect → Used for assertions/validations
+*/
+
+
+// --------------------------------------------------------------------------------
+// 6. CREATING TEST CASES
+// --------------------------------------------------------------------------------
+
+/*
+Example:
+
+test('check title', async ({ page }) => {
+
+});
+
+Explanation:
+- 'check title' → Name of test case
+- async → Allows asynchronous execution
+- page → Browser page object used for browser interactions
+*/
+
+
+// --------------------------------------------------------------------------------
+// 7. OPENING A WEBSITE
+// --------------------------------------------------------------------------------
+
+/*
+Example:
+
+await page.goto("https://www.techxincorporation.com/");
+
+Explanation:
+- goto() opens the specified URL
+- await ensures execution waits until page loads completely
+*/
+
+
+// --------------------------------------------------------------------------------
+// 8. LOCATORS IN PLAYWRIGHT
+// --------------------------------------------------------------------------------
+
+/*
+Example:
+
+const consultBtn =
+page.getByRole("link", { name: /Request/ }).nth(1);
+
+Explanation:
+- getByRole() locates elements using accessibility roles
+- "link" refers to anchor/link element
+- { name: /Request/ } uses regex matching
+- nth(1) selects the second matching element
+*/
+
+
+// --------------------------------------------------------------------------------
+// 9. CLICK ACTIONS
+// --------------------------------------------------------------------------------
+
+/*
+Example:
+
+await consultBtn.click();
+
+Explanation:
+- click() performs click operation on located element
+- await ensures action completes before moving forward
+*/
+
+
+// --------------------------------------------------------------------------------
+// 10. ASSERTIONS / VALIDATIONS
+// --------------------------------------------------------------------------------
+
+/*
+Example:
+
+expect(page.url()).toBe(
+"https://www.techxincorporation.com/contact"
+);
+
+Explanation:
+- expect() validates application behavior
+- toBe() compares actual and expected values
+- Used for verification in automation testing
+*/
+
+
+// --------------------------------------------------------------------------------
+// 11. MULTI-BROWSER EXECUTION
+// --------------------------------------------------------------------------------
+
+/*
+Playwright executed tests simultaneously on:
+- Chromium
+- Firefox
+- WebKit
+
+This demonstrates Playwright’s cross-browser testing capability.
+*/
+
+
+// --------------------------------------------------------------------------------
+// 12. HTML REPORTS
+// --------------------------------------------------------------------------------
+
+/*
+Playwright automatically generated HTML reports after execution.
+
+Command:
+    npx playwright show-report
+
+The report contains:
+- Passed/Failed tests
+- Execution time
+- Error logs
+- Screenshots
+- Traces
+*/
+
+
+// --------------------------------------------------------------------------------
+// 13. KEY LEARNINGS
+// --------------------------------------------------------------------------------
+
+/*
+- Learned Playwright project setup
+- Understood browser automation basics
+- Executed cross-browser testing
+- Learned locators and assertions
+- Understood async/await usage in automation
+- Explored Playwright reporting features
+- Learned different Playwright execution modes
+- Understood the structure of automation test cases
+*/
+
+
+// ================================================================================
+// KEY TAKEAWAYS
+// ================================================================================
+
+/*
+- Playwright is a powerful modern automation framework.
+- It supports multiple browsers and languages.
+- Test cases are asynchronous in nature.
+- Locators help identify web elements effectively.
+- Assertions validate application behavior.
+- Cross-browser testing is one of Playwright’s major strengths.
+- HTML reports and debugging tools improve test analysis.
+- Playwright provides fast and reliable end-to-end testing.
+*/
+// ================================================================================
