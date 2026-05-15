@@ -54,6 +54,7 @@ getData().then((data) => {
 //     console.log("Data received");
 // }, 5000);
  
+
 // setInterval(() => {
 //     console.log("Checking for new data...");
 // }, 3000);
