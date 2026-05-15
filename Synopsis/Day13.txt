@@ -1,0 +1,397 @@
+// ================================================================================
+// DAY 13 SYNOPSIS – EXPRESS.JS + PLAYWRIGHT AUTOMATION TESTING
+// ================================================================================
+
+/*
+Today, I learned how to build a simple web application using Express.js
+and automate login functionality testing using Playwright.
+
+The session focused on frontend-backend integration, server creation,
+form handling, API communication, environment variables,
+and data-driven automation testing.
+*/
+
+
+// --------------------------------------------------------------------------------
+// 1. PLAYWRIGHT PROJECT INITIALIZATION
+// --------------------------------------------------------------------------------
+
+/*
+Playwright project was initialized using:
+
+    npm init playwright@latest
+
+During setup:
+- Playwright configuration files were created
+- Browser binaries were installed
+- Test folders and GitHub workflow were generated
+*/
+
+
+// --------------------------------------------------------------------------------
+// 2. REQUIRED PACKAGE INSTALLATION
+// --------------------------------------------------------------------------------
+
+/*
+Installed required packages:
+
+    npm i express
+    npm i path
+    npm i body-parser
+    npm i dotenv
+
+Purpose:
+- express     → Backend server creation
+- path        → File path handling
+- body-parser → Parse request body data
+- dotenv      → Environment variable handling
+*/
+
+
+// --------------------------------------------------------------------------------
+// 3. WEB APPLICATION STRUCTURE
+// --------------------------------------------------------------------------------
+
+/*
+A simple web application was created inside the webapp folder.
+
+Project Structure:
+
+Day13
+├── tests
+├── webapp
+│   ├── public
+│   │   ├── index.html
+│   │   ├── login.html
+│   │   └── login.css
+│   ├── .env
+│   └── index.js
+*/
+
+
+// --------------------------------------------------------------------------------
+// 4. EXPRESS SERVER SETUP
+// --------------------------------------------------------------------------------
+
+/*
+Express server was configured to:
+- Serve static files
+- Handle routes
+- Process login requests
+- Start application server
+*/
+
+const express = require('express');
+const path = require('path');
+require('dotenv').config();
+
+const PORT = process.env.PORT || 3000;
+
+const app = express();
+
+app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static('public'));
+
+
+// --------------------------------------------------------------------------------
+// 5. ENVIRONMENT VARIABLES
+// --------------------------------------------------------------------------------
+
+/*
+Environment variables were stored using .env file.
+
+Example:
+
+PORT=3000
+
+dotenv package loads environment variables securely.
+*/
+
+
+// --------------------------------------------------------------------------------
+// 6. ROUTE HANDLING
+// --------------------------------------------------------------------------------
+
+/*
+GET routes were created to serve HTML pages.
+
+Example:
+*/
+
+app.get('/', (req, res) => {
+
+    res.sendFile(
+        path.join(__dirname, "public/index.html")
+    );
+});
+
+app.get('/login', (req, res) => {
+
+    res.sendFile(
+        path.join(__dirname, "public/login.html")
+    );
+});
+
+
+// --------------------------------------------------------------------------------
+// 7. LOGIN VALIDATION API
+// --------------------------------------------------------------------------------
+
+/*
+POST route was created to validate login credentials.
+
+Validation Rules:
+- Username length must be > 3
+- Password length must be > 5
+- Valid credentials return success response
+*/
+
+app.post('/loginwithcreds', (req, res) => {
+
+    const { username, password } = req.body;
+
+    if (
+        username.length <= 3 ||
+        password.length <= 5
+    ) {
+
+        res.send(
+            "Username length must be greater than 3 & Password 5"
+        );
+
+    } else if (
+        username === "admin123" &&
+        password === "admin123"
+    ) {
+
+        res.send("Login successful");
+
+    } else {
+
+        res.status(401).send("Invalid credentials");
+    }
+});
+
+
+// --------------------------------------------------------------------------------
+// 8. STARTING THE SERVER
+// --------------------------------------------------------------------------------
+
+/*
+Server started using:
+*/
+
+app.listen(PORT, () => {
+
+    console.log(`App started on PORT:${PORT}`);
+});
+
+
+// --------------------------------------------------------------------------------
+// 9. LOGIN PAGE CREATION
+// --------------------------------------------------------------------------------
+
+/*
+A login page was created using HTML and CSS.
+
+Features:
+- Username input
+- Password input
+- Login button
+- Response message display
+*/
+
+
+// --------------------------------------------------------------------------------
+// 10. FRONTEND-BACKEND COMMUNICATION
+// --------------------------------------------------------------------------------
+
+/*
+fetch() API was used to send login data
+from frontend to backend without page reload.
+*/
+
+loginForm.addEventListener('submit', async (e) => {
+
+    e.preventDefault();
+
+    const formData = new FormData(loginForm);
+
+    const username = formData.get('username');
+
+    const password = formData.get('password');
+
+    const response = await fetch('/loginwithcreds', {
+
+        method: 'POST',
+
+        headers: {
+            'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+            username,
+            password
+        })
+    });
+
+    msg.textContent = await response.text();
+});
+
+
+// --------------------------------------------------------------------------------
+// 11. PLAYWRIGHT AUTOMATION TESTING
+// --------------------------------------------------------------------------------
+
+/*
+Playwright was used to automate login form testing.
+
+The automation script:
+- Opened login page
+- Filled username and password
+- Clicked login button
+- Validated displayed response message
+*/
+
+
+// --------------------------------------------------------------------------------
+// 12. DATA-DRIVEN TESTING
+// --------------------------------------------------------------------------------
+
+/*
+Multiple login scenarios were tested using data-driven testing.
+
+Scenarios Tested:
+- Valid credentials
+- Invalid credentials
+- Validation errors
+*/
+
+const loginData = [
+
+    {
+        username: "tom",
+        password: "tom",
+        expected:
+        "Username length must be greater than 3 & Password 5"
+    },
+
+    {
+        username: "admin123",
+        password: "admin123",
+        expected: "Login successful"
+    }
+];
+
+
+// --------------------------------------------------------------------------------
+// 13. PLAYWRIGHT TEST SCRIPT
+// --------------------------------------------------------------------------------
+
+import { test, expect } from '@playwright/test';
+
+for (const data of loginData) {
+
+    test(`Login with ${data.username}`, async ({ page }) => {
+
+        await page.goto(
+            'http://localhost:3000/login'
+        );
+
+        await page.fill('#username', data.username);
+
+        await page.fill('#password', data.password);
+
+        await page.click('#loginBtn');
+
+        await expect(
+            page.locator('#msg')
+        ).toHaveText(data.expected);
+    });
+}
+
+
+// --------------------------------------------------------------------------------
+// 14. CROSS-BROWSER TESTING
+// --------------------------------------------------------------------------------
+
+/*
+Playwright executed tests on:
+- Chromium
+- Firefox
+- WebKit
+
+This verified application behavior across multiple browsers.
+*/
+
+
+// --------------------------------------------------------------------------------
+// 15. DEBUGGING
+// --------------------------------------------------------------------------------
+
+/*
+Understood common issue:
+
+ERR_CONNECTION_REFUSED
+
+Reason:
+- Playwright tests were executed before starting Express server.
+
+Solution:
+- Start server first
+- Then execute Playwright tests
+*/
+
+
+// --------------------------------------------------------------------------------
+// 16. HOW TO RUN APPLICATION
+// --------------------------------------------------------------------------------
+
+/*
+Start Express Server:
+
+    cd webapp
+    node index.js
+
+Run Playwright Tests (new terminal):
+
+    npx playwright test
+*/
+
+
+// --------------------------------------------------------------------------------
+// 17. KEY LEARNINGS
+// --------------------------------------------------------------------------------
+
+/*
+- Learned Express.js server creation
+- Understood static file handling
+- Learned frontend-backend communication
+- Used fetch() API for form submission
+- Understood environment variables using dotenv
+- Implemented login form validation
+- Performed Playwright automation testing
+- Learned data-driven testing
+- Executed cross-browser testing
+- Understood server dependency before automation execution
+*/
+
+
+// ================================================================================
+// KEY TAKEAWAYS
+// ================================================================================
+
+/*
+- Express.js simplifies backend server creation.
+- Static files can be served using express.static().
+- fetch() enables asynchronous frontend-backend communication.
+- Environment variables improve application flexibility.
+- Playwright automates browser interactions effectively.
+- Data-driven testing improves test scalability.
+- Cross-browser testing ensures application consistency.
+- Server must be running before executing automation tests.
+*/
+// ================================================================================
