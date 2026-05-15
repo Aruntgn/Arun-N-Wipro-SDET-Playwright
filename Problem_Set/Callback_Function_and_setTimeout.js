@@ -74,7 +74,6 @@ Explanation:
 - clearInterval() stops interval execution
 */
 
-
 /*
 
 3. Callback-based Calculator
