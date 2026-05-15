@@ -30,7 +30,7 @@
 // }
 // }
  
- 
+
 // if(isPrime){
 //     console.log("Prime")
 // }else{
