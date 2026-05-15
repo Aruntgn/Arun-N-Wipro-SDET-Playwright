@@ -26,6 +26,7 @@ Check divisibility from 2 up to n-1.
 */
 
 let num = 17;
+
 let isPrime = true;
 
 if (num <= 1) {

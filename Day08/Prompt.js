@@ -152,4 +152,4 @@
 // Class -> Object --> prototype [toString(), hashCode(), etc.]
 // protpotype -> first --> 11
 // A -> work, prof --> a | prototype --> a.first() --> refrence
-// B extends A -> play, work, prof --> b | a | prototype
+// B extends A -> play, work, prof --> b | a | prototype --> b.first() --> refrence
